@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:notes/helpers/helper.dart';
 import 'package:notes/main.dart';
+import 'package:notes/models/note.dart';
+import 'package:notes/view-models/notes-viewmodel.dart';
 
 class NotesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {},
+      ),
       endDrawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -83,24 +89,26 @@ class NotesScreen extends StatelessWidget {
           'Notes',
           style: TextStyle(color: Colors.black),
         ),
-        actions: [
-          // IconButton(icon: Icon(Icons.more_vert_outlined), onPressed: () {}),
-          // IconButton(
-          //     icon: Icon(Icons.account_circle_outlined),
-          //     onPressed: () {
-          //       Navigator.of(context)
-          //           .push(MaterialPageRoute(builder: (_) => ProfileScreen()));
-          //     }),
-          // IconButton(
-          //     icon: Icon(Icons.logout),
-          //     onPressed: () {
-          //       auth.signOut();
-          //     }),
-        ],
       ),
-      body: Column(
-        children: [Text('Notes')],
-      ),
+      body: FutureBuilder(
+          future: NotesViewModel().getNotes(),
+          builder: (context, AsyncSnapshot<List<Note>> snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return CircularProgressIndicator();
+            } else {
+              return snapshot.data.length == 0
+                  ? Center(
+                      child: Text(
+                      'No notes found\nCreate a note from the + button!',
+                      textAlign: TextAlign.center,
+                    ))
+                  : ListView.builder(
+                      itemCount: snapshot.data.length,
+                      itemBuilder: (_, index) {
+                        return Container();
+                      });
+            }
+          }),
     );
   }
 }

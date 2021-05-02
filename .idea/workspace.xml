@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e54157cb-62c9-4a9d-8758-8f0c8dc6ffc4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/view/screens/notes-screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/screens/notes-screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/screens/profile-screen.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/screens/sign-in-screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/screens/sign-in-screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
