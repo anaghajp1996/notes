@@ -1,6 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:notes/view/screens/sign-in-screen.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
@@ -27,10 +30,19 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Notes'),
-      ),
+    return FutureBuilder(
+      future: Firebase.initializeApp(),
+      builder: (context, snapshot) {
+        return snapshot.hasError
+            ? Container(
+                child: Text('Something went wrong!'),
+              )
+            : snapshot.connectionState == ConnectionState.waiting
+                ? Container(
+                    child: CircularProgressIndicator(),
+                  )
+                : SignInScreen();
+      },
     );
   }
 }
