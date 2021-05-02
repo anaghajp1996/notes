@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:notes/helpers/helper.dart';
 import 'package:notes/main.dart';
-import 'package:notes/view/screens/profile-screen.dart';
 
 class NotesScreen extends StatelessWidget {
   @override
@@ -20,8 +19,6 @@ class NotesScreen extends StatelessWidget {
             ListTile(
               title: Text('Reset Password'),
               onTap: () async {
-                // Update the state of the app.
-                // ...
                 showDialog(
                     context: context,
                     builder: (_) {

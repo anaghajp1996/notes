@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -94,6 +95,8 @@ class _SignInScreenState extends State<SignInScreen> {
                               .createUserWithEmailAndPassword(
                                   email: emailController.text,
                                   password: passwordController.text);
+                          final users = firestore.collection('users');
+                          users.doc(userCredential.user.uid).set({'notes': []});
                         } on FirebaseAuthException catch (e) {
                           if (e.code == 'weak-password') {
                             showSnackBar('Password is too weak.');
