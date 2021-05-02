@@ -33,6 +33,9 @@ class NotesTextField extends StatelessWidget {
           _formKey.currentState.validate();
         },
         validator: (String text) {
+          if (validate == null) {
+            return null;
+          }
           return validate(text);
         },
         controller: controller,

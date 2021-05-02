@@ -18,6 +18,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       navigatorKey: navigatorKey,
       theme: ThemeData(
+          appBarTheme: AppBarTheme(
+              iconTheme: IconThemeData(color: Colors.black),
+              backgroundColor: Colors.yellow,
+              titleTextStyle: TextStyle(color: Colors.black)),
           primarySwatch: Colors.blue,
           textTheme: TextTheme(
               headline3: TextStyle(color: Colors.black),

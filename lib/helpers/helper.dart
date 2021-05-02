@@ -19,3 +19,11 @@ bool validateStructure(String value) {
   RegExp regExp = new RegExp(pattern);
   return regExp.hasMatch(value);
 }
+
+void showCircularIndicator() {
+  showDialog(
+      context: navigatorKey.currentContext,
+      builder: (ctx) {
+        return Center(child: CircularProgressIndicator());
+      });
+}

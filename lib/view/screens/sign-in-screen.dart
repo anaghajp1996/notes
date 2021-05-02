@@ -50,6 +50,9 @@ class _SignInScreenState extends State<SignInScreen> {
                 isPasswordField: true,
                 hintText: 'Password',
                 validate: (String text) {
+                  if (signInScreen) {
+                    return null;
+                  }
                   if (validateStructure(text)) {
                     return null;
                   } else {
@@ -61,8 +64,27 @@ class _SignInScreenState extends State<SignInScreen> {
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: NotesFlatButton(
                   onPressed: () async {
+                    showCircularIndicator();
                     if (signInScreen) {
                       // Sign in user
+                      if (passwordController.text.isNotEmpty) {
+                        try {
+                          UserCredential userCredential = await FirebaseAuth
+                              .instance
+                              .signInWithEmailAndPassword(
+                                  email: emailController.text,
+                                  password: passwordController.text);
+                        } on FirebaseAuthException catch (e) {
+                          if (e.code == 'user-not-found') {
+                            showSnackBar('No user found for that email.');
+                          } else if (e.code == 'wrong-password') {
+                            showSnackBar(
+                                'Wrong password provided for that user.');
+                          }
+                        } catch (e) {
+                          showSnackBar('Something went wrong!');
+                        }
+                      }
                     } else {
                       // Sign up user
                       if ((validateStructure(passwordController.text))) {
@@ -84,6 +106,8 @@ class _SignInScreenState extends State<SignInScreen> {
                         }
                       }
                     }
+                    passwordController.clear();
+                    Navigator.of(context).pop();
                   },
                   title: signInScreen ? 'Sign In' : 'Sign Up',
                 ),
