@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:notes/helpers/helper.dart';
 import 'package:notes/main.dart';
-import 'package:notes/view/screens/notes-screen.dart';
+import 'package:notes/view/screens/notes-list-screen.dart';
 import 'package:notes/view/widgets/notes-flat-button.dart';
 import 'package:notes/view/widgets/notes-text-field.dart';
 
@@ -147,7 +147,7 @@ class _SignInScreenState extends State<SignInScreen> {
             return CircularProgressIndicator();
           } else {
             if (snapshot.data != null) {
-              return NotesScreen();
+              return NotesListScreen();
             }
             return signInScreenScaffold;
           }
