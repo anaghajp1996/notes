@@ -23,7 +23,8 @@ class _NotesScreenState extends State<NotesScreen> {
   Image _image;
 
   Future getImage() async {
-    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+    final pickedFile = await picker.getImage(
+        source: ImageSource.gallery, maxHeight: 500, maxWidth: 500);
     setState(() {
       if (pickedFile != null) {
         _imageFile = File(pickedFile.path);

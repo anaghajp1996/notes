@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -44,6 +45,16 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: NotesTextField(
                   controller: emailController,
                   hintText: 'Email',
+                  validate: (String text) {
+                    if (signInScreen) {
+                      return null;
+                    }
+                    if (EmailValidator.validate(text)) {
+                      return null;
+                    } else {
+                      return 'Please enter a valid email ID';
+                    }
+                  },
                 ),
               ),
               NotesTextField(
@@ -61,6 +72,66 @@ class _SignInScreenState extends State<SignInScreen> {
                   }
                 },
               ),
+              signInScreen
+                  ? Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Center(
+                        child: TextButton(
+                            onPressed: () {
+                              final emailController = TextEditingController();
+                              showDialog(
+                                  context: context,
+                                  builder: (_) {
+                                    return AlertDialog(
+                                      title: Text(
+                                          'Please enter the email ID to which a password resent link should be sent:'),
+                                      content: TextFormField(
+                                        decoration: InputDecoration(
+                                            border: UnderlineInputBorder(
+                                                borderSide: BorderSide(
+                                                    color: Colors.black))),
+                                        controller: emailController,
+                                        validator: (String text) {
+                                          if (text.isEmpty) {
+                                            return 'Please enter an email ID.';
+                                          } else if (!EmailValidator.validate(
+                                              text)) {
+                                            return 'Please enter a valid email ID.';
+                                          }
+                                          return null;
+                                        },
+                                      ),
+                                      actions: [
+                                        TextButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text(
+                                              'Cancel',
+                                              style:
+                                                  TextStyle(color: Colors.red),
+                                            )),
+                                        TextButton(
+                                            onPressed: () async {
+                                              Navigator.of(context).pop();
+                                              auth.sendPasswordResetEmail(
+                                                  email: emailController.text);
+                                            },
+                                            child: Text('OK'))
+                                      ],
+                                    );
+                                  });
+                            },
+                            child: Text(
+                              'Forgot Password?',
+                              style: TextStyle(
+                                color: Colors.black,
+                                decoration: TextDecoration.underline,
+                              ),
+                            )),
+                      ),
+                    )
+                  : Container(),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: NotesFlatButton(
