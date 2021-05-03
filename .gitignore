@@ -372,3 +372,6 @@ fabric.properties
 .idea/workspace.xml
 *.iml
 *.xml
+*.ser
+*.json
+*.xml

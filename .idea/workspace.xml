@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e54157cb-62c9-4a9d-8758-8f0c8dc6ffc4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/screens/notes-list-screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/screens/notes-list-screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/screens/notes-screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/screens/notes-screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +42,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="dart.analysis.tool.window.force.activate" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/android" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -80,13 +81,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="540" y="246" key="#PSD/0.0.1920.1040@0.0.1920.1040" timestamp="1620047574807" />
-    <state x="524" y="138" key="SettingsEditor" timestamp="1620048275842">
+    <state x="615" y="254" key="FileChooserDialogImpl" timestamp="1620056866381">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="524" y="138" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620048275842" />
-    <state x="586" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1620048102504">
+    <state x="615" y="254" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1620056866381" />
+    <state x="524" y="138" key="SettingsEditor" timestamp="1620056769906">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="586" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620048102504" />
+    <state x="524" y="138" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620056769906" />
+    <state x="586" y="232" width="854" height="678" key="search.everywhere.popup" timestamp="1620056746180">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="586" y="232" width="854" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620056746180" />
   </component>
 </project>
