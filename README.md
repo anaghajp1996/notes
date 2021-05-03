@@ -6,6 +6,7 @@ A cross platform mobile app to make notes.
 * Users can login/signup using email or Google auth
 * Users can reset their password
 * Users can create note and add text with an image
+* Users can edit the note offline as well
 
 
 ## Dependencies
