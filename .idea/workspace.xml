@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e54157cb-62c9-4a9d-8758-8f0c8dc6ffc4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/google-services.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/notes_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/notes_android.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/helpers/helper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helpers/helper.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view-models/notes-viewmodel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view-models/notes-viewmodel.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/screens/sign-in-screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/screens/sign-in-screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view/screens/notes-list-screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/screens/notes-list-screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view/screens/notes-screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/screens/notes-screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,6 +45,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Shivani\Documents\Anagha\notes\android\app" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">

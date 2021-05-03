@@ -6,23 +6,31 @@ class NotesViewModel {
   List<Note> getNotes(QuerySnapshot notesSnapshot) {
     List<Note> notes = [];
     final notesMap = notesSnapshot.docs;
-    notesMap.forEach((key) {
-      final createdOn = key['createdOn'] as Timestamp;
-      final lastEditedOn = key['lastEditedOn'] as Timestamp;
+    for (var key in notesMap) {
+      final data = key.data();
+      final createdOn = data['createdOn'] as Timestamp;
+      final lastEditedOn = data['lastEditedOn'] as Timestamp;
+      String imagePath;
+      try {
+        imagePath = data['imagePath'];
+      } catch (e) {
+        print(e);
+      }
       final note = Note(
           id: key.id,
-          content: key['content'],
-          title: key['title'],
+          content: data['content'],
+          title: data['title'],
           createdOn: DateTime.fromMicrosecondsSinceEpoch(
               createdOn.microsecondsSinceEpoch),
           lastEditedOn: DateTime.fromMicrosecondsSinceEpoch(
-              lastEditedOn.microsecondsSinceEpoch));
+              lastEditedOn.microsecondsSinceEpoch),
+          imagePath: imagePath);
       notes.add(note);
-    });
+    }
     return notes ?? [];
   }
 
-  Future createNote(String title, String content) async {
+  Future createNote(String title, String content, String imagePath) async {
     final _ = await firestore
         .collection('users')
         .doc(auth.currentUser.uid)
@@ -31,7 +39,8 @@ class NotesViewModel {
       'title': title,
       'content': content,
       'createdOn': DateTime.now(),
-      'lastEditedOn': DateTime.now()
+      'lastEditedOn': DateTime.now(),
+      'imagePath': imagePath
     });
   }
 

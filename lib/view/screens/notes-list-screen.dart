@@ -46,6 +46,14 @@ class NotesListScreen extends StatelessWidget {
                   actions: [
                     TextButton(
                         onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text(
+                          'Cancel',
+                          style: TextStyle(color: Colors.red),
+                        )),
+                    TextButton(
+                        onPressed: () {
                           if (titleController.text.isEmpty) {
                             formKey.currentState.validate();
                           } else {
@@ -57,14 +65,6 @@ class NotesListScreen extends StatelessWidget {
                           }
                         },
                         child: Text('OK')),
-                    TextButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: Text(
-                          'Cancel',
-                          style: TextStyle(color: Colors.red),
-                        ))
                   ],
                 );
               });
