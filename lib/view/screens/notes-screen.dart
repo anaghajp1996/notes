@@ -70,7 +70,7 @@ class _NotesScreenState extends State<NotesScreen> {
                 if (_image != null) {
                   final reference = firebase_storage.FirebaseStorage.instance
                       .ref(_imageFile.path);
-                  final uploadedFile = firebase_storage.FirebaseStorage.instance
+                  final _ = firebase_storage.FirebaseStorage.instance
                       .ref(reference.fullPath)
                       .putFile(_imageFile);
                   uploadedImagePath = reference.fullPath;

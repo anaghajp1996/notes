@@ -1,7 +1,5 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:notes/helpers/helper.dart';
 import 'package:notes/main.dart';
 import 'package:notes/view-models/authentication-viewmodel.dart';
@@ -32,12 +30,12 @@ class _SignInScreenState extends State<SignInScreen> {
             children: [
               SizedBox(height: 64),
               Text(
-                'Hello!',
+                'Notes',
                 style: Theme.of(context).textTheme.headline3,
               ),
               Text(
-                'Welcome',
-                style: Theme.of(context).textTheme.headline4,
+                '\nSave your notes and access then from anywhere!',
+                style: TextStyle(fontSize: 20),
               ),
               SizedBox(height: 64),
               Padding(
