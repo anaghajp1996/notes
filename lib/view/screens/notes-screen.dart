@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:notes/helpers/helper.dart';
+import 'package:notes/models/note.dart';
 import 'package:notes/view-models/notes-viewmodel.dart';
 
 class NotesScreen extends StatelessWidget {
   final String title;
-  NotesScreen({this.title});
+  final Note note;
+  NotesScreen({this.title, this.note});
 
   @override
   Widget build(BuildContext context) {
     final contentController = TextEditingController();
+    if (note != null) {
+      contentController.text = note.content;
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          title ?? '',
+          note == null ? title ?? '' : note.title,
           style: TextStyle(color: Colors.black),
           overflow: TextOverflow.ellipsis,
         ),
@@ -21,7 +26,12 @@ class NotesScreen extends StatelessWidget {
               icon: Icon(Icons.done),
               onPressed: () {
                 showCircularIndicator();
-                NotesViewModel().createNote(title, contentController.text);
+                if (note == null) {
+                  NotesViewModel().createNote(title, contentController.text);
+                } else {
+                  note.content = contentController.text;
+                  NotesViewModel().updateNote(note);
+                }
                 Navigator.of(context).pop();
                 Navigator.of(context).pop();
               })

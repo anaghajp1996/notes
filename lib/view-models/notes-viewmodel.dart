@@ -39,4 +39,23 @@ class NotesViewModel {
       'lastEditedOn': DateTime.now()
     });
   }
+
+  Future updateNote(Note note) async {
+    final _ = await firestore
+        .collection('users')
+        .doc(auth.currentUser.uid)
+        .collection('notes')
+        .doc(note.id)
+        .update({
+      'title': note.title,
+      'content': note.content,
+      'createdOn': note.createdOn,
+      'lastEditedOn': DateTime.now()
+    }).then((value) {
+      print('');
+    }).catchError((e) {
+      print(e);
+    });
+    print('');
+  }
 }

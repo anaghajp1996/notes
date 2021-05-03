@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:notes/helpers/helper.dart';
 import 'package:notes/main.dart';
@@ -173,36 +174,48 @@ class NotesListScreen extends StatelessWidget {
                           itemCount: snapshot.data.length,
                           itemBuilder: (_, index) {
                             final notes = snapshot.data;
-                            return Padding(
-                              padding: const EdgeInsets.only(bottom: 8),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    notes[index].title.isEmpty
-                                        ? notes[index].content
-                                        : notes[index].title,
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16),
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (_) => NotesScreen(
+                                          note: notes[index],
+                                        )));
+                              },
+                              child: Container(
+                                color: Colors.transparent,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(bottom: 8),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        notes[index].title.isEmpty
+                                            ? notes[index].content
+                                            : notes[index].title,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 8),
+                                        child: Text(
+                                          notes[index].content,
+                                          style: TextStyle(fontSize: 16),
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                      ),
+                                      Divider(
+                                        color: Colors.grey,
+                                        thickness: 1,
+                                        indent: 4,
+                                        endIndent: 4,
+                                      )
+                                    ],
                                   ),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 8),
-                                    child: Text(
-                                      notes[index].content,
-                                      style: TextStyle(fontSize: 16),
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ),
-                                  Divider(
-                                    color: Colors.grey,
-                                    thickness: 1,
-                                    indent: 4,
-                                    endIndent: 4,
-                                  )
-                                ],
+                                ),
                               ),
                             );
                           }),
