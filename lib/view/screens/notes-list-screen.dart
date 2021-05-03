@@ -1,14 +1,17 @@
-import 'package:flutter/gestures.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:notes/helpers/helper.dart';
 import 'package:notes/main.dart';
-import 'package:notes/models/note.dart';
 import 'package:notes/view-models/notes-viewmodel.dart';
 import 'package:notes/view/screens/notes-screen.dart';
 
 class NotesListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    CollectionReference notes = FirebaseFirestore.instance
+        .collection('users')
+        .doc(auth.currentUser.uid)
+        .collection('notes');
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.yellow,
@@ -145,13 +148,14 @@ class NotesListScreen extends StatelessWidget {
           style: TextStyle(color: Colors.black),
         ),
       ),
-      body: FutureBuilder(
-          future: NotesViewModel().getNotes(),
-          builder: (context, AsyncSnapshot<List<Note>> snapshot) {
+      body: StreamBuilder(
+          stream: notes.snapshots(),
+          builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(child: CircularProgressIndicator());
             } else {
-              return snapshot.data.length == 0
+              final notes = NotesViewModel().getNotes(snapshot.data);
+              return notes.length == 0
                   ? Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -171,9 +175,8 @@ class NotesListScreen extends StatelessWidget {
                   : Padding(
                       padding: const EdgeInsets.all(16),
                       child: ListView.builder(
-                          itemCount: snapshot.data.length,
+                          itemCount: notes.length,
                           itemBuilder: (_, index) {
-                            final notes = snapshot.data;
                             return GestureDetector(
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(

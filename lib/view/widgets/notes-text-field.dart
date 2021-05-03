@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:notes/helpers/helper.dart';
 
 class NotesTextField extends StatelessWidget {
   final TextEditingController controller;

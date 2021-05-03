@@ -3,13 +3,13 @@ import 'package:notes/main.dart';
 import 'package:notes/models/note.dart';
 
 class NotesViewModel {
-  Future<List<Note>> getNotes() async {
+  List<Note> getNotes(QuerySnapshot notesSnapshot) {
     List<Note> notes = [];
-    final notesSnapshot = await firestore
-        .collection('users')
-        .doc(auth.currentUser.uid)
-        .collection('notes')
-        .get();
+    // final notesSnapshot = await firestore
+    //     .collection('users')
+    //     .doc(auth.currentUser.uid)
+    //     .collection('notes')
+    //     .get();
     final notesMap = notesSnapshot.docs;
     notesMap.forEach((key) {
       final createdOn = key['createdOn'] as Timestamp;

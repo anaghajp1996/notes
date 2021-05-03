@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:notes/helpers/helper.dart';
@@ -70,8 +68,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       // Sign in user
                       if (passwordController.text.isNotEmpty) {
                         try {
-                          UserCredential userCredential = await FirebaseAuth
-                              .instance
+                          UserCredential _ = await FirebaseAuth.instance
                               .signInWithEmailAndPassword(
                                   email: emailController.text,
                                   password: passwordController.text);
