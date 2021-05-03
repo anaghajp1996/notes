@@ -3,12 +3,37 @@
   <component name="ChangeListManager">
     <list default="true" id="e54157cb-62c9-4a9d-8758-8f0c8dc6ffc4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/screens/notes-screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/screens/notes-screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/google-services.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/notes_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/notes_android.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/helpers/helper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helpers/helper.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view-models/notes-viewmodel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view-models/notes-viewmodel.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view/screens/sign-in-screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/screens/sign-in-screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/android/app">
+      <ProjectState>
+        <option name="isInclusion" value="true" />
+      </ProjectState>
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -21,7 +46,15 @@
   <component name="PropertiesComponent">
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -35,5 +68,23 @@
       <updated>1619940036335</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="716" y="116" key="#C:/Users/Shivani/Documents/Anagha/notes/android/app/build.gradle" timestamp="1620048300255">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="716" y="116" key="#C:/Users/Shivani/Documents/Anagha/notes/android/app/build.gradle/0.0.1920.1040@0.0.1920.1040" timestamp="1620048300255" />
+    <state x="540" y="246" key="#PSD" timestamp="1620047574807">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="540" y="246" key="#PSD/0.0.1920.1040@0.0.1920.1040" timestamp="1620047574807" />
+    <state x="524" y="138" key="SettingsEditor" timestamp="1620048275842">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="524" y="138" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1620048275842" />
+    <state x="586" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1620048102504">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="586" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1620048102504" />
   </component>
 </project>

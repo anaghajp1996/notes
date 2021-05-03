@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:notes/helpers/helper.dart';
 import 'package:notes/main.dart';
+import 'package:notes/view-models/authentication-viewmodel.dart';
 import 'package:notes/view/screens/notes-list-screen.dart';
 import 'package:notes/view/widgets/notes-flat-button.dart';
 import 'package:notes/view/widgets/notes-text-field.dart';
@@ -67,42 +69,23 @@ class _SignInScreenState extends State<SignInScreen> {
                     if (signInScreen) {
                       // Sign in user
                       if (passwordController.text.isNotEmpty) {
-                        try {
-                          UserCredential _ = await FirebaseAuth.instance
-                              .signInWithEmailAndPassword(
-                                  email: emailController.text,
-                                  password: passwordController.text);
-                        } on FirebaseAuthException catch (e) {
-                          if (e.code == 'user-not-found') {
-                            showSnackBar('No user found for that email.');
-                          } else if (e.code == 'wrong-password') {
-                            showSnackBar(
-                                'Wrong password provided for that user.');
-                          }
-                        } catch (e) {
-                          showSnackBar('Something went wrong!');
+                        final authentication = await AuthenticationViewModel()
+                            .signInUser(
+                                emailController.text, passwordController.text);
+                        if (!authentication.isAuthenticated) {
+                          showSnackBar(authentication.errorMessage ??
+                              'Something went wrong. Please try again.');
                         }
                       }
                     } else {
                       // Sign up user
                       if ((validateStructure(passwordController.text))) {
-                        try {
-                          UserCredential userCredential = await FirebaseAuth
-                              .instance
-                              .createUserWithEmailAndPassword(
-                                  email: emailController.text,
-                                  password: passwordController.text);
-                          final users = firestore.collection('users');
-                          users.doc(userCredential.user.uid).set({'notes': []});
-                        } on FirebaseAuthException catch (e) {
-                          if (e.code == 'weak-password') {
-                            showSnackBar('Password is too weak.');
-                          } else if (e.code == 'email-already-in-use') {
-                            showSnackBar(
-                                'An account already exists for that email.');
-                          }
-                        } catch (e) {
-                          showSnackBar(e);
+                        final authentication = await AuthenticationViewModel()
+                            .createUser(
+                                emailController.text, passwordController.text);
+                        if (!authentication.isAuthenticated) {
+                          showSnackBar(authentication.errorMessage ??
+                              'Something went wrong. Please try again.');
                         }
                       }
                     }
@@ -130,6 +113,35 @@ class _SignInScreenState extends State<SignInScreen> {
                             color: Colors.black, fontWeight: FontWeight.bold),
                       ))
                 ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                      ),
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            'lib/images/google_icon.jpg',
+                            width: 24,
+                          ),
+                          Text(
+                            'Sign in with Google',
+                            style: TextStyle(color: Colors.grey),
+                          )
+                        ],
+                      ),
+                      onPressed: () async {
+                        final authentication =
+                            await AuthenticationViewModel().signInWithGoogle();
+                        if (!authentication.isAuthenticated) {
+                          showSnackBar(authentication.errorMessage ??
+                              'Something went wrong. Please try again.');
+                        }
+                      }),
+                ],
               )
             ],
           ),
@@ -141,7 +153,7 @@ class _SignInScreenState extends State<SignInScreen> {
         stream: auth.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return CircularProgressIndicator();
+            return Center(child: CircularProgressIndicator());
           } else {
             if (snapshot.data != null) {
               return NotesListScreen();

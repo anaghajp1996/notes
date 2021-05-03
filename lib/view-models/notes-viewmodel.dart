@@ -5,11 +5,6 @@ import 'package:notes/models/note.dart';
 class NotesViewModel {
   List<Note> getNotes(QuerySnapshot notesSnapshot) {
     List<Note> notes = [];
-    // final notesSnapshot = await firestore
-    //     .collection('users')
-    //     .doc(auth.currentUser.uid)
-    //     .collection('notes')
-    //     .get();
     final notesMap = notesSnapshot.docs;
     notesMap.forEach((key) {
       final createdOn = key['createdOn'] as Timestamp;
@@ -51,11 +46,6 @@ class NotesViewModel {
       'content': note.content,
       'createdOn': note.createdOn,
       'lastEditedOn': DateTime.now()
-    }).then((value) {
-      print('');
-    }).catchError((e) {
-      print(e);
     });
-    print('');
   }
 }

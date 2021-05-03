@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "917968597155",
+    "firebase_url": "https://notes-379eb-default-rtdb.firebaseio.com",
     "project_id": "notes-379eb",
     "storage_bucket": "notes-379eb.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "917968597155-ggd5jb6dp2njtn92d4oe0eesppnp2po2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.notes",
+            "certificate_hash": "dbd93eecc0f7706e16a67320f7a2f826de45e657"
+          }
+        },
         {
           "client_id": "917968597155-465ae1rrooklp33cjk05lpaa2alibk7l.apps.googleusercontent.com",
           "client_type": 3

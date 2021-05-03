@@ -5,6 +5,7 @@ void showSnackBar(String content) {
   ScaffoldMessenger.of(navigatorKey.currentContext).showSnackBar(SnackBar(
     content: Text(content),
     action: SnackBarAction(
+      textColor: Colors.yellow,
       onPressed: () {
         ScaffoldMessenger.of(navigatorKey.currentContext).hideCurrentSnackBar();
       },

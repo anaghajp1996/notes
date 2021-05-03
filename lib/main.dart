@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('Something went wrong!'),
             );
           } else if (snapshot.connectionState == ConnectionState.waiting) {
-            return Container(
+            return Center(
               child: CircularProgressIndicator(),
             );
           } else if (snapshot.connectionState == ConnectionState.done) {
